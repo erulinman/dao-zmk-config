@@ -1,1 +1,69 @@
-boards/arm/dao/dao.keymap
+/*
+ * Copyright (c) 2021 Rafael Yumagulov
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/keys.h>
+
+#define DEF 0
+#define LWR 1
+#define RSE 2
+#define ADJ 3
+
+&lt { quick_tap_ms = <200>; };
+
+&mt { quick_tap_ms = <200>; };
+
+/ {
+    chosen {
+        zmk,matrix_transform = &default_transform;
+
+        // zmk,matrix_transform = &extra_keys_transform;
+    };
+};
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            bindings = <
+&kt ESCAPE  &kp Q  &kp W  &kp E     &kp R        &kp T      &kp Y      &kp U       &kp I         &kp O    &kp P     &kp DELETE
+&kt LCTRL   &kp A  &kp S  &kp D     &kp F        &kp G      &kp H      &kp J       &kp K         &kp L    &kp SEMI  &kt SQT
+&kt LSHFT   &kp Z  &kp X  &kp C     &kp V        &kp B      &kp N      &kp M       &kp COMMA     &kp DOT  &kp FSLH  &kt RSHIFT
+                          &kt LWIN  &lt 1 SPACE  &kt SPACE  &kt ENTER  &lt 2 BSPC  &kt LG(RALT)
+            >;
+        };
+
+        lower_layer {
+            bindings = <
+&kt ESCAPE  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp NUMBER_7    &kp NUMBER_8    &kp NUMBER_9  &kp NUMBER_0     &kp DELETE
+&kt LCTRL   &none         &none         &none         &none         &none         &none         &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kt RIGHT_ARROW  &kp F12
+&kt LSHIFT  &kp LC(F1)    &kp F2        &kp F3        &kp F4        &kp F5        &kp F6        &kp F7          &kp F8          &kp F9        &kp F10          &kp F11
+                                        &kp LWIN      &trans        &kp SPACE     &kp ENTER     &trans          &lt ADJ DEL
+            >;
+        };
+
+        raise_layer {
+            bindings = <
+&kp TAB     &kp EXCL  &kp QUESTION  &kp HASH  &kp DOLLAR  &kp PERCENT  &kp CARET      &kp AMPERSAND  &kp LG(ASTERISK)      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp BACKSPACE
+&kp LCTRL   &none     &none         &none     &none       &none        &kp LG(MINUS)  &kp LG(EQUAL)  &kp LG(LEFT_BRACKET)  &kp RIGHT_BRACKET     &kp LG(BSLH)           &kp LG(GRAVE)
+&kp LSHIFT  &none     &none         &none     &none       &none        &kp UNDER      &kp PLUS       &kp LEFT_BRACE        &kp RIGHT_BRACE       &kp PIPE               &kp TILDE
+                                    &kp LWIN  &trans      &kp SPACE    &kp ENTER      &trans         &kp LG(RALT)
+            >;
+        };
+
+        adjust_layer {
+            bindings = <
+&bootloader  &none         &none         &none         &none         &none         &none         &none         &none         &none         &none         &bootloader
+&bt BT_CLR   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 4  &bt BT_SEL 3  &bt BT_SEL 2  &bt BT_SEL 1  &bt BT_SEL 0  &bt BT_CLR
+&sys_reset   &none         &none         &none         &none         &none         &none         &none         &none         &none         &none         &sys_reset
+                                         &trans        &none         &trans        &trans        &none         &trans
+            >;
+        };
+    };
+};
