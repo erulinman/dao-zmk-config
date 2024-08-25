@@ -34,6 +34,7 @@
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
+            retro-tap;
         };
 
         hmr: homerow_mods_right {
@@ -43,6 +44,7 @@
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
+            retro-tap;
         };
     };
 
