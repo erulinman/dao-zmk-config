@@ -33,8 +33,7 @@
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <300>;
-            hold-trigger-key-positions = <6 18 30 39 40 41 32 31 19 7 8 20 21 9 10 22 34 33 35 23 11>;
+            tapping-term-ms = <200>;
         };
 
         hmr: homerow_mods_right {
@@ -43,8 +42,7 @@
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
-            hold-trigger-key-positions = <0 12 24 25 13 1 2 14 26 28 25 26 27 15 3 5 4 16 17 29 38 36 37>;
-            tapping-term-ms = <300>;
+            tapping-term-ms = <200>;
         };
     };
 
